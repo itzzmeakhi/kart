@@ -1,0 +1,18 @@
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin auth-card {
+    @include flex-column();
+    height: 100%;
+    width: 70%;
+    padding: 0;
+    justify-content: flex-start;
+    margin: 0 auto;
+}

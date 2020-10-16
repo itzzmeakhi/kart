@@ -1,0 +1,9 @@
+@import './scss//colors', './scss/fonts';
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $color-white-light;
+    font-family: $font-kalam;
+    font-size: 20px;
+}

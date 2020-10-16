@@ -1,0 +1,42 @@
+@import './../../scss/colors', './../../scss/mixins', './../../scss/fonts';
+
+.signin {
+    min-height: 350px;
+    box-sizing: border-box;
+    border: 1px solid $color-white-thick;
+    background-color: $color-white-light;
+    form {
+        @include auth-card;
+        .input__group {
+            @include flex-column;
+        }
+        h4 {
+            color: $color-blue-thick;
+        }
+        h4::after {
+            display: block;
+            content: '';
+            background-color: $color-blue-thick;
+            padding: 1px;
+            width: 80%;
+            margin: 7px auto;
+        }
+        input, button {
+            padding: 7px;
+            margin: 10px;
+            font-family: $font-kalam;
+            &:focus {
+                outline: none;
+            }
+        }
+        input {
+            border: 1px solid $color-white-thick;
+        }
+        button {
+            background-color: $color-blue-thick;
+            color: $color-white-light;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

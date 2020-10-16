@@ -1,0 +1,9 @@
+@import './../../scss/colors', './../../scss//fonts';
+
+.header {
+    width: 100%;
+    height: 8vh;
+    font-family: $font-dancing;
+    background-color: $color-blue-thick;
+    color: $color-white-light;
+}
