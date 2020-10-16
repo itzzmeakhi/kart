@@ -1,12 +1,21 @@
 import React from 'react';
+import { useFormsio } from 'react-formsio';
 
 import './SignUp.styles.scss';
 
 const SignUp = () => {
+    const { register, formState, isFormValid } = useFormsio();
+
+    const { userName, userEmail, userPassword, userDOB } = formState;
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    }
+
     return (
         <div className = 'signup'>
 
-            <form>
+            <form onSubmit = {handleSubmit}>
 
                 <h4> Signup here...!! </h4>
 
@@ -17,7 +26,18 @@ const SignUp = () => {
                         name = 'userName'
                         id = 'userName'
                         placeholder = 'Your Name'
-                        autoComplete = 'off' /> 
+                        autoComplete = 'off'
+                        className = {`${userName?.errors && Object.keys(userName.errors).length > 0 ? 'error-fields': ''}`}
+                        ref = {register({
+                            validators: 'required|minLength:2'
+                        })} /> 
+
+                    {userName?.errors && Object.keys(userName.errors).length > 0 ? (
+                        <p>
+                            {userName?.errors?.required ? 'Username is required' : null}
+                            {userName?.errors?.minLength ? 'Invalid Name' : null}
+                        </p>
+                    ) : null}
 
                 </div>
 
@@ -28,7 +48,18 @@ const SignUp = () => {
                         name = 'userEmail'
                         id = 'userEmail'
                         placeholder = 'Your Email'
-                        autoComplete = 'off' />
+                        autoComplete = 'off'
+                        className = {`${userEmail?.errors && Object.keys(userEmail.errors).length > 0 ? 'error-fields': ''}`}
+                        ref = {register({
+                            validators: 'required|email'
+                        })} />
+
+                    {userEmail?.errors && Object.keys(userEmail.errors).length > 0 ? (
+                        <p>
+                            {userEmail?.errors?.required ? 'Email is required' : null}
+                            {userEmail?.errors?.email ? 'Invalid Email' : null}
+                        </p>
+                    ) : null}
 
                 </div>
 
@@ -39,7 +70,23 @@ const SignUp = () => {
                         name = 'userPassword'
                         id = 'userPassword'
                         placeholder = 'Your Password'
-                        autoComplete = 'off' />
+                        autoComplete = 'off'
+                        className = {`${userPassword?.errors && Object.keys(userPassword.errors).length > 0 ? 'error-fields': ''}`}
+                        ref = {register({
+                            validators: 'required',
+                            regexValidators: {
+                                passwordStrength: true
+                            }
+                        })} />
+
+                    {userPassword?.errors && Object.keys(userPassword.errors).length > 0 ? (
+                        <p>
+                            {userPassword?.errors?.required ? 'Password is required' : null}
+                            {userPassword?.errors?.passwordStrength ? 
+                                'Use password as a combination of 2 lowercase, 3 uppercase, 2 digits, 1 symbol i.e., * ! @ # $ and 8 digits length.' 
+                                : null}
+                        </p>
+                    ) : null}
 
                 </div>
 
@@ -50,11 +97,26 @@ const SignUp = () => {
                         name = 'userDOB'
                         id = 'userDOB'
                         placeholder = 'Your DOB (DD/MM/YYYY)'
-                        autoComplete = 'off' />
+                        autoComplete = 'off'
+                        className = {`${userDOB?.errors && Object.keys(userDOB.errors).length > 0 ? 'error-fields': ''}`}
+                        ref = {register({
+                            validators: 'required',
+                            regexValidators: {
+                                validBirthDate: true
+                            }
+                        })} />
+
+                    {userDOB?.errors && Object.keys(userDOB.errors).length > 0 ? (
+                        <p>
+                            {userDOB?.errors?.required ? 'DOB is required' : null}
+                            {userDOB?.errors?.validBirthDate ? 'Invalid Birth Date' : null}
+                        </p>
+                    ) : null}
 
                 </div>
 
                 <button
+                    disabled = {!isFormValid}
                     type = 'submit'>
                         Create an Account!
                 </button>
