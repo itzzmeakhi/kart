@@ -1,15 +1,25 @@
 import React from 'react';
 import { useFormsio } from 'react-formsio';
+import { connect } from 'react-redux';
+
+import { signUpStart } from './../../redux/user/user.actions';
 
 import './SignUp.styles.scss';
 
-const SignUp = () => {
+const SignUp = (props) => {
+    const { onSignUp } = props;
     const { register, formState, isFormValid } = useFormsio();
 
     const { userName, userEmail, userPassword, userDOB } = formState;
 
     const handleSubmit = event => {
         event.preventDefault();
+        onSignUp({
+            userName: userName?.value,
+            userEmail: userEmail?.value,
+            userPassword: userPassword?.value,
+            userDOB: userDOB?.value
+        });
     }
 
     return (
@@ -127,4 +137,10 @@ const SignUp = () => {
     )
 }
 
-export default SignUp;
+const mapDispatchToProps = dispatch => {
+    return {
+        onSignUp: (userDetails) => dispatch(signUpStart(userDetails))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignUp);

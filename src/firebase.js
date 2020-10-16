@@ -1,3 +1,7 @@
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
 const firebaseConfig = {
     apiKey: "AIzaSyA5H5iAOR_u3V05m9SO8ZkY1IrUs_yWv2A",
     authDomain: "kart-b61db.firebaseapp.com",
@@ -7,3 +11,9 @@ const firebaseConfig = {
     messagingSenderId: "434870159839",
     appId: "1:434870159839:web:9075ef1fe21651e3d0dc6a"
 };
+
+firebase.initializeApp(firebaseConfig);
+
+export const firestore = firebase.firestore();
+export const auth = firebase.auth();
+
