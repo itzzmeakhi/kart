@@ -14,6 +14,13 @@ const userReducer = (state = initialState, action) => {
                 loggedInUser: action.payload,
                 error: null
             }
+        case UserActionTypes.SIGN_UP_ERROR:
+        case UserActionTypes.EMAIL_SIGN_IN_ERROR:
+            return {
+                ...state,
+                loggedInUser: null,
+                error: action.payload
+            }
         default:
             return state;
     }

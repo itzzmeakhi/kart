@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { auth } from './firebase';
 import AuthPage from './pages/AuthPage.component';
 import Header from './components/Header/Header.component';
+import { checkForUserAuth } from './redux/user/user.actions';
 
 import './App.scss';
 
 const App = (props) => {
+    const { checkForUserAuthSession } = props;
     useEffect(() => {
-        auth.onAuthStateChanged(user => {
-            console.log(user);
-        })
-    }, [])
+        checkForUserAuthSession();
+    }, [checkForUserAuthSession]);
     return (
         <div>
             <Header />
@@ -27,4 +26,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+    return {
+        checkForUserAuthSession: () => dispatch(checkForUserAuth())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
