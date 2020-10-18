@@ -16,10 +16,26 @@ const userReducer = (state = initialState, action) => {
             }
         case UserActionTypes.SIGN_UP_ERROR:
         case UserActionTypes.EMAIL_SIGN_IN_ERROR:
+        case UserActionTypes.SIGN_OUT_ERROR:
             return {
                 ...state,
                 loggedInUser: null,
                 error: action.payload
+            } 
+        case UserActionTypes.PLACE_AN_ORDER_SUCCESS:
+            return {
+                ...state,
+                loggedInUser: {
+                    ...state.loggedInUser,
+                    userOrders: action.payload
+                },
+                error: null
+            }
+        case UserActionTypes.SIGN_OUT_SUCCESS:
+            return {
+                ...state,
+                loggedInUser: null,
+                error: null
             }
         default:
             return state;

@@ -1,6 +1,6 @@
 import { firestore, auth } from './firebase';
 
-// Creata a User Document in firestore
+// Create a User Document in firestore
 
 export const createUserDocument = async userData => {
     if(!userData) return;
@@ -32,3 +32,5 @@ export const getCurrentUser = () => {
       }, reject)
     })
 }
+
+// Get

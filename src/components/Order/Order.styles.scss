@@ -1,0 +1,14 @@
+.order__card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 30px;
+    @media (min-width: 320px) and (max-width: 480px) {
+        * {
+            font-size: 80%;
+        }
+        > * {
+            margin: 0 10px;
+        }
+    }
+}

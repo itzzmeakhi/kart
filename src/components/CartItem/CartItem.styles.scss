@@ -1,0 +1,49 @@
+@import './../../scss/colors';
+
+.cart__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 75px;
+    max-height: 100px;
+    padding: 2px;
+    margin: 2px 0px;
+    border-bottom: 1px solid $color-white-thick;
+    > * {
+        margin: 4px;
+    }
+    .cart__img {
+        height: 50px;
+        min-width: 20%;
+        max-width: 37%;
+        align-self: center;
+        img {
+            max-height: 100%;
+            
+        }
+    }
+    .cart__desc {
+        font-size: 50%;
+        > * {
+            margin: 0;
+        }
+        .btn__grp {
+            margin: 2px 0px;
+            button {
+                margin: 0px 3px;
+                border: none;
+                cursor: pointer;
+                color: $color-white;
+                &:focus {
+                    outline: none;
+                }
+            }
+            .add__button {
+                background: $color-green;
+            }
+            .remove__button {
+                background: $color-red-shade;
+            }
+        }
+    }
+}

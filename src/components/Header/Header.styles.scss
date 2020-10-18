@@ -1,9 +1,100 @@
-@import './../../scss/colors', './../../scss//fonts';
+@import './../../scss/colors', './../../scss/fonts';
 
 .header {
+    position: relative;
     width: 100%;
-    height: 8vh;
+    height: 50px;
     font-family: $font-dancing;
     background-color: $color-blue-thick;
     color: $color-white-light;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    a {
+        text-decoration: none;
+        color: $color-blue-thick;
+        cursor: pointer;
+    }
+    .title {
+        color: $color-white;
+        margin: 20px;
+        font-size: 135%;
+    }
+    .header__options {
+        display: flex;
+        justify-content: space-evenly;
+        width: 10%;
+    }
+    .user__options {
+        margin: 20px;
+        color: $color-white;
+        cursor: pointer;
+        .dropdown {
+            font-family: $font-kalam;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 200px;
+            top: 71%;
+            right: 2%;
+            background: $color-white-medium;
+            border: 1px solid $color-white-thick;
+            color: $color-blue-thick;
+            border-radius: 5px;
+            > * {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                width: 100%;
+            }
+            > *:hover {
+                background: $color-white-thick;
+            }
+        }
+    }
+    .cart__options {
+        margin: 20px;
+        color: $color-white;
+        cursor: pointer;
+        span {
+            margin: 0px 5px;
+        }
+        .dropdown {
+            font-family: $font-kalam;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 250px;
+            top: 71%;
+            right: 7%;
+            padding: 15px 1px;
+            background: $color-white-medium;
+            border: 1px solid $color-white-thick;
+            color: $color-blue-thick;
+            border-radius: 5px;
+            > * {
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+    }
+    @media (min-width: 320px) and (max-width: 480px) {
+        .header__options {
+            width: 50%;
+        }
+        .user__options {
+            .dropdown {
+                top: 77%;
+                right: 12%;
+            }
+        }
+        .cart__options {
+            .dropdown {
+                top: 77%;
+                right: 32%;
+            }
+        }
+    }
 }

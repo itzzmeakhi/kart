@@ -61,3 +61,56 @@ export const checkForUserAuth = () => {
         type: UserActionTypes.CHECK_FOR_USER_AUTH
     }
 }
+
+// PLACE AN ORDER START ACTION
+
+export const placeAnOrderStart = (orderDetails) => {
+    return {
+        type: UserActionTypes.PLACE_AN_ORDER_START,
+        payload: orderDetails
+    }
+}
+
+// PLACE AN ORDER SUCCESS ACTION
+
+export const placeAnOrderSuccess = (updatedDetails) => {
+    return {
+        type: UserActionTypes.PLACE_AN_ORDER_SUCCESS,
+        payload: updatedDetails
+    }
+}
+
+// PLACE AN ORDER ERROR ACTION
+
+export const placeAnOrderError = (err) => {
+    return {
+        type: UserActionTypes.PLACE_AN_ORDER_ERROR,
+        payload: err
+    }
+}
+
+// SIGN OUT START ACTION
+
+export const signOutStart = () => {
+    return {
+        type: UserActionTypes.SIGN_OUT_START
+    }
+}
+
+// SIGN OUT SUCCESS ACTION
+
+export const signOutSuccess = () => {
+    console.log('Hello');
+    return {
+        type: UserActionTypes.SIGN_OUT_SUCCESS
+    }
+}
+
+// SIGN OUT ERROR ACTION
+
+export const signOutError = (err) => {
+    return {
+        type: UserActionTypes.SIGN_UP_ERROR,
+        payload: err
+    }
+}

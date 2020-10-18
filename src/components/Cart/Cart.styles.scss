@@ -1,0 +1,22 @@
+@import './../../scss/colors';
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    color: $color-blue-thick;
+    .alert {
+        margin: 0;
+        font-size: 95%;
+        text-align: center;
+    }
+    .place__order {
+        background: $color-blue-thick;
+        color: $color-white;
+        padding: 10px 0px;
+        border: none;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+}

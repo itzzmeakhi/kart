@@ -35,19 +35,29 @@
         .price {
             background: $color-blue-thick;
             color: $color-white;
+            padding: 2px;
             width: 60%;
             text-align: center;
         } 
         button {
             align-self: center;
             padding: 5px 20px;
-            background: transparent;
-            border: 2px solid $color-blue-thick;
+            border-radius: 5px;
             color: $color-blue-thick;
             cursor: pointer;
-            &:hover {
+            &:focus {
                 outline: none;
             }
+        }
+        .add__button {
+            background: transparent;
+            border: 2px solid $color-blue-thick;
+        }
+        .remove__button {
+            padding: 5px 10px;
+            background: $color-red-shade;
+            color: $color-white;
+            border: none;
         }
     }
 }
