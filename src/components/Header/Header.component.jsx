@@ -9,15 +9,15 @@ import { signOutStart } from './../../redux/user/user.actions';
 
 import './Header.styles.scss';
 
-const Header = ({ noOfItemsInCart, loggedInUser, signOut }) => {
+export const Header = ({ noOfItemsInCart, loggedInUser, signOut }) => {
     const [isUserDropDownVisible, setUserDropDownVisibility] = useState(false);
     const [isCartDropDownVisible, setCartDropDownVisibility] = useState(false);
     const history = useHistory();
     return (
-        <header className = 'header'>
+        <header className = 'header' id = 'header'>
             <NavLink to = '/'><p className = 'title'>Kart</p></NavLink>
             {loggedInUser ? (
-                <div className = 'header__options'>
+                <div className = 'header__options' id = 'header__options'>
                     <div className = 'cart__options'>
                         <FontAwesomeIcon 
                             icon={faShoppingCart} 
